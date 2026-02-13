@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift-Left Architecture | QA Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">QA <span>Engineering</span></a>
+            <div class="nav-links">
+                <a href="../index.html#approach" class="nav-link">Estrategia</a>
+                <a href="../index.html#stack" class="nav-link">Stack</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 60vh;">
+        <div class="container hero-content">
+            <div class="badge">Deep Dive</div>
+            <h1>Shift-Left Architecture</h1>
+            <p class="hero-subtitle">Moviendo la calidad al principio del ciclo de vida del desarrollo.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container article-content">
+            <a href="../index.html#approach" class="back-link">← Volver a Estrategia</a>
+
+            <h2>El Problema del Testing Tradicional</h2>
+            <p>En el modelo de cascada tradicional, o incluso en implementaciones ágiles inmaduras, el testing ocurre al
+                final. Esto provoca que los bugs sean:</p>
+            <ul>
+                <li>Más caros de arreglar (hasta 100x más que en diseño).</li>
+                <li>Bloqueantes para el release.</li>
+                <li>Causantes de fricción entre equipos Dev y QA.</li>
+            </ul>
+
+            <h2>La Estrategia Shift-Left</h2>
+            <p>Shift-Left no significa simplemente "testear antes". Significa integrar la calidad en cada paso del
+                pipeline, desde la definición de requisitos.</p>
+
+            <h3>1. Contract Testing (Pact.io)</h3>
+            <p>En arquitecturas de microservicios, esperar a tener todos los servicios desplegados para hacer pruebas
+                E2E es lento y frágil. El Contract Testing permite validar la interacción entre consumidor y proveedor
+                de forma aislada.</p>
+            <div class="code-block">
+                // Ejemplo de contrato (Pact)<br>
+                const interaction = {<br>
+                state: 'user exists',<br>
+                uponReceiving: 'a request for user',<br>
+                withRequest: { method: 'GET', path: '/user/1' },<br>
+                willRespondWith: { status: 200, body: { id: 1, name: 'Alice' } }<br>
+                };
+            </div>
+
+            <h3>2. Análisis Estático Avanzado</h3>
+            <p>Herramientas como SonarQube o ESLint configuradas con reglas estrictas de seguridad y complejidad
+                ciclomatica actúan como el primer gate de calidad, impidiendo que código "sucio" llegue siquiera al
+                repositorio.</p>
+
+            <h3>3. Feature Flags y Trunk Based Development</h3>
+            <p>Para movernos rápido, necesitamos integrar código constantemente. Las Feature Flags nos permiten
+                desplegar código inacabado o no probado completamente a producción sin que afecte al usuario,
+                desacoplando el "Deploy" del "Release".</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">© 2026 Software Quality Engineering.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality by Design | QA Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">QA <span>Engineering</span></a>
+            <div class="nav-links">
+                <a href="../index.html#approach" class="nav-link">Estrategia</a>
+                <a href="../index.html#stack" class="nav-link">Stack</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 60vh;">
+        <div class="container hero-content">
+            <div class="badge">Deep Dive</div>
+            <h1>Quality by Design</h1>
+            <p class="hero-subtitle">La calidad es una característica del sistema, no una fase.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container article-content">
+            <a href="../index.html#approach" class="back-link">← Volver a Estrategia</a>
+
+            <h2>Más allá de encontrar bugs</h2>
+            <p>Tradicionalmente, QA se enfoca en detectar fallos. Quality by Design (QbD) se enfoca en diseñar sistemas
+                resistentes a fallos. Si un sistema está bien diseñado, muchos tipos de errores se vuelven imposibles o
+                irrelevantes.</p>
+
+            <h3>Observabilidad vs Monitorización</h3>
+            <p>La monitorización te dice si el sistema está caído. La observabilidad te permite preguntar "por qué".
+                Implementar Logs estructurados, Métricas de negocio y Tracing distribuido es tarea de QA Engineering.
+            </p>
+
+            <h3>Patrones de Resiliencia</h3>
+            <p>Los sistemas modernos fallan. La pregunta es cómo. Diseñamos con patrones que mitigan el impacto:</p>
+            <ul>
+                <li><strong>Circuit Breakers:</strong> Dejan de llamar a un servicio caído para evitar cascadas de
+                    fallos.</li>
+                <li><strong>Retries con Backoff Exponencial:</strong> Reintentos inteligentes para fallos transitorios.
+                </li>
+                <li><strong>Bulkheads:</strong> Aislar partes del sistema para que un fallo en 'Pagos' no tire
+                    'Catálogo'.</li>
+            </ul>
+
+            <h3>Self-Healing</h3>
+            <div class="code-block">
+                # Ejemplo Kubernetes Liveness Probe<br>
+                livenessProbe:<br>
+                httpGet:<br>
+                path: /healthz<br>
+                port: 8080<br>
+                initialDelaySeconds: 3<br>
+                periodSeconds: 3
+            </div>
+            <p>Configurar correctamente los health checks y las estrategias de reinicio automático es tan vital como
+                cualquier test de integración.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">© 2026 Software Quality Engineering.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

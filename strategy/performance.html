@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Engineering | QA Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">QA <span>Engineering</span></a>
+            <div class="nav-links">
+                <a href="../index.html#approach" class="nav-link">Estrategia</a>
+                <a href="../index.html#stack" class="nav-link">Stack</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 60vh;">
+        <div class="container hero-content">
+            <div class="badge">Deep Dive</div>
+            <h1>Performance Engineering</h1>
+            <p class="hero-subtitle">Optimizando la entrega de valor a escala.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container article-content">
+            <a href="../index.html#approach" class="back-link">← Volver a Estrategia</a>
+
+            <h2>No es solo "Load Testing"</h2>
+            <p>Muchas empresas hacen "load testing" una vez al año antes del Black Friday. La ingeniería de performance
+                es continua. Se trata de entender cómo se comporta el sistema bajo estrés diario.</p>
+
+            <h3>SLIs y SLOs</h3>
+            <p>Antes de optimizar, debes medir. Definimos:</p>
+            <ul>
+                <li><strong>SLI (Service Level Indicator):</strong> La métrica real (ej: latencia del 99% de las
+                    requests).</li>
+                <li><strong>SLO (Service Level Objective):</strong> El objetivo (ej: < 200ms).</li>
+                <li><strong>SLA (Service Level Agreement):</strong> El contrato legal (ej: si > 500ms, reembolso).</li>
+            </ul>
+
+            <h3>Continuous Performance Testing con k6</h3>
+            <p>Con herramientas modernas como k6, los tests de performance viven en el código y se ejecutan en el
+                pipeline.</p>
+            <div class="code-block">
+                // test.js<br>
+                import http from 'k6/http';<br>
+                import { check } from 'k6';<br><br>
+                export let options = {<br>
+                vus: 100, // 100 usuarios virtuales<br>
+                duration: '30s',<br>
+                thresholds: {<br>
+                http_req_duration: ['p(95)<200'], // 95% requests < 200ms<br>
+                    },<br>
+                    };<br><br>
+                    export default function () {<br>
+                    let res = http.get('https://api.myapp.com');<br>
+                    check(res, { 'status is 200': (r) => r.status === 200 });<br>
+                    }
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">© 2026 Software Quality Engineering.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

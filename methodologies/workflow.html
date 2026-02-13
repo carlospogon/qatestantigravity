@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodologies & Workflow | QA Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">QA <span>Engineering</span></a>
+            <div class="nav-links">
+                <a href="../index.html#approach" class="nav-link">Estrategia</a>
+                <a href="../index.html#methodologies" class="nav-link">Metodologías</a>
+                <a href="../index.html#stack" class="nav-link">Stack</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 60vh;">
+        <div class="container hero-content">
+            <div class="badge">Deep Dive</div>
+            <h1>El Flujo de Ingeniería de Calidad</h1>
+            <p class="hero-subtitle">Desde la especificación BDD hasta la observabilidad en producción.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container article-content">
+            <a href="../index.html#methodologies" class="back-link">← Volver a Metodologías</a>
+
+            <h2>1. Planificación: BDD (Behavior Driven Development)</h2>
+            <p>La calidad empieza antes de escribir una sola línea de código. BDD nos permite alinear negocio y
+                tecnología usando un lenguaje común (Gherkin).</p>
+            <div class="code-block">
+                Feature: Checkout Proceso<br><br>
+                Scenario: Usuario con saldo insuficiente<br>
+                Given el usuario "Carlos" tiene un saldo de 10€<br>
+                When intenta comprar el artículo "Auriculares" de 50€<br>
+                Then debería ver un error "Saldo insuficiente"<br>
+                And la transacción debería ser rechazada
+            </div>
+            <p><strong>Valor Estratégico:</strong> Estos escenarios se convierten en documentación viva y tests
+                automatizados.</p>
+
+            <h2>2. Codificación: TDD (Test Driven Development)</h2>
+            <p>TDD no es solo testing, es una metodología de diseño. Escribir el test antes obliga a pensar en la API
+                pública de tus componentes y resulta en código más desacoplado y mantenible.</p>
+            <ul>
+                <li><strong>Red:</strong> Escribe un test que falle.</li>
+                <li><strong>Green:</strong> Escribe el código mínimo para que pase.</li>
+                <li><strong>Refactor:</strong> Mejora el código con la seguridad de que el test te cubre.</li>
+            </ul>
+
+            <h2>3. Build & CI: La Barrera de Calidad</h2>
+            <p>En el pipeline de Integración Continua, ejecutamos validaciones rápidas y deterministas. Si algo falla
+                aquí, el código es rechazado inmediatamente.</p>
+            <ul>
+                <li><strong>Linters & Formatters:</strong> (ESLint, Prettier) Consistencia de código.</li>
+                <li><strong>Análisis Estático (SAST):</strong> (SonarQube) Detección de bugs complejos y
+                    vulnerabilidades.</li>
+                <li><strong>Unit Tests:</strong> Ejecución paralela para feedback en segundos.</li>
+            </ul>
+
+            <h2>4. Despliegue & CD: Testing en Producción</h2>
+            <p>El entorno de Staging nunca será idéntico a Producción. Por eso, las estrategias modernas mitigan el
+                riesgo en el despliegue real.</p>
+
+            <h3>Canary Deployments</h3>
+            <p>Desplegamos la nueva versión solo al 5% de los usuarios. Monitorizamos métricas clave (tasa de errores,
+                latencia). Si todo va bien, aumentamos el tráfico gradualmente. Si fallan, rollback automático.</p>
+
+            <h3>Feature Flags</h3>
+            <p>Desacoplamos el despliegue de la funcionalidad. El código está en producción pero apagado. Podemos
+                activarlo para usuarios internos, beta testers, y finalmente el público general.</p>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">© 2026 Software Quality Engineering.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

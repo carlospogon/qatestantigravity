@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Governance | QA Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">QA <span>Engineering</span></a>
+            <div class="nav-links">
+                <a href="../index.html#approach" class="nav-link">Estrategia</a>
+                <a href="../index.html#stack" class="nav-link">Stack</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 60vh;">
+        <div class="container hero-content">
+            <div class="badge">Deep Dive</div>
+            <h1>Automated Governance</h1>
+            <p class="hero-subtitle">Seguridad y Compliancia como Código.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container article-content">
+            <a href="../index.html#approach" class="back-link">← Volver a Estrategia</a>
+
+            <h2>El Guardián Invisible</h2>
+            <p>En DevOps, no podemos tener un equipo humano revisando cada release manualmente por seguridad.
+                Necesitamos "Automated Governance".</p>
+
+            <h3>Policy as Code (OPA)</h3>
+            <p>Usamos Open Policy Agent (OPA) para definir reglas que el pipeline debe cumplir antes de desplegar nada.
+            </p>
+            <div class="code-block">
+                package kubernetes.admission<br><br>
+                deny[msg] {<br>
+                input.request.kind.kind == "Pod"<br>
+                image := input.request.object.spec.containers[_].image<br>
+                not startswith(image, "my-registry.com/")<br>
+                msg := sprintf("Imagen %v no permitida. Usar registry interno.", [image])<br>
+                }
+            </div>
+
+            <h3>Seguridad en el Pipeline (DevSecOps)</h3>
+            <ul>
+                <li><strong>SAST (Static Application Security Testing):</strong> Escanea el código fuente buscando
+                    vulnerabilidades conocidas (ej: SQL Injection).</li>
+                <li><strong>SCA (Software Composition Analysis):</strong> Revisa tus dependencias (npm, pip, maven)
+                    buscando librerías con CVEs conocidos.</li>
+                <li><strong>Secret Scanning:</strong> Detecta si alguien subió una API Key o password al repo por error.
+                </li>
+            </ul>
+
+            <p>Si alguna de estas políticas falla, el pipeline se detiene automáticamente. Calidad es también seguridad.
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">© 2026 Software Quality Engineering.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
