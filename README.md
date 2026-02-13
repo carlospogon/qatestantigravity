@@ -1,6 +1,6 @@
 # 🧪 QA Portfolio – Test Automation & Web Testing
 
-Bienvenido a mi repositorio de prácticas y portfolio como **QA Engineer**.  
+Bienvenido a mi repositorio y portfolio como **QA Engineer**.  
 Este proyecto forma parte de mi proceso de aprendizaje y especialización en testing manual y automatizado orientado a entornos reales de desarrollo.
 
 ---
