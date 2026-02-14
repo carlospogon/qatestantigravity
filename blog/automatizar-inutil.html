@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatizar sin estrategia es inútil | Reflexiones QA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">QA <span>Engineering</span></a>
+            <div class="nav-links">
+                <a href="../index.html#approach" class="nav-link">Estrategia</a>
+                <a href="../blog/index.html" class="nav-link">Reflexiones</a>
+                <a href="../index.html#stack" class="nav-link">Stack</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 50vh;">
+        <div class="container hero-content">
+            <div class="badge">Automatización</div>
+            <h1>Automatizar sin estrategia es inútil</h1>
+            <p class="hero-subtitle">La paradoja de gastar más tiempo manteniendo tests que desarrollando features.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container article-content">
+            <a href="../blog/index.html" class="back-link">← Volver a Reflexiones</a>
+
+            <h2>El mito: "Automatiza todo"</h2>
+            <p>Automatizar el 100% de tus casos de prueba manuales no es una victoria, es una trampa. Los tests UI
+                (Selenium/Cypress) son lentos y frágiles.</p>
+
+            <h3>La Pirámide de Cohn invertida (El Cono de Helado)</h3>
+            <p>Muchos equipos tienen miles de tests UI y muy pocos unitarios. Resultado:</p>
+            <ul>
+                <li>Feedback lento (horas en CI).</li>
+                <li>Muchos "falsos positivos" (tests que fallan por timeout, no por bugs).</li>
+                <li>Desconfianza del equipo en la suite de pruebas.</li>
+            </ul>
+
+            <h3>ROI (Retorno de Inversión)</h3>
+            <p>Antes de automatizar, calcula:</p>
+            <div class="code-block">
+                ROI = (Tiempo Manual Ahorrado * Ejecuciones) - (Tiempo Desarrollo Test + Tiempo Mantenimiento Test)
+            </div>
+            <p>Si el mantenimiento supera al ahorro, mejor hazlo manual o explora testing exploratorio.</p>
+
+            <h3>La Regla de Oro</h3>
+            <p>Empuja los tests lo más abajo posible en la pirámide. Si puedes testearlo con un test unitario, no hagas
+                un test de API. Si puedes con API, no hagas UI.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">© 2026 Software Quality Engineering.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

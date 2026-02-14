@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Estudio | QA Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .case-grid {
+            display: grid;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .case-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .case-card:hover {
+            border-color: var(--text-primary);
+        }
+
+        .case-body {
+            padding: 2rem;
+        }
+
+        .case-meta {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .case-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .case-section {
+            margin-bottom: 2rem;
+        }
+
+        .case-section h4 {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            border-left: 2px solid var(--text-secondary);
+            padding-left: 0.75rem;
+        }
+
+        .case-section p {
+            margin-bottom: 0;
+            font-size: 1.05rem;
+        }
+
+        .impact-box {
+            background: rgba(0, 112, 243, 0.1);
+            border-top: 1px solid var(--accent-primary);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .impact-metric {
+            text-align: center;
+        }
+
+        .impact-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .impact-label {
+            font-size: 0.8rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        @media(max-width: 768px) {
+            .impact-box {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">QA <span>Engineering</span></a>
+            <div class="nav-links">
+                <a href="../index.html#approach" class="nav-link">Estrategia</a>
+                <a href="../index.html#methodologies" class="nav-link">Metodologías</a>
+                <a href="../index.html#stack" class="nav-link">Stack</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 50vh;">
+        <div class="container hero-content">
+            <div class="badge">Experiencia Real</div>
+            <h1>Casos de Estudio</h1>
+            <p class="hero-subtitle">Resolución de problemas complejos de ingeniería mediante estrategia de calidad.</p>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="container case-grid">
+
+            <!-- CASE 1 -->
+            <article class="case-card">
+                <div class="case-body">
+                    <span class="case-meta">Fintech / Pagos</span>
+                    <h3 class="case-title">Reducción del 80% en bugs de producción en un Gateway de Pagos</h3>
+
+                    <div class="case-section">
+                        <h4>El Problema</h4>
+                        <p>Los tests manuales de regresión tardaban 3 días antes de cada release. Aún así, bugs críticos
+                            escapaban a producción debido a la complejidad de las integraciones bancarias.</p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>La Estrategia</h4>
+                        <p>Implementación de <strong>Contract Testing (Pact)</strong> para desacoplar los microservicios
+                            y simular respuestas bancarias deterministas. Migración de tests E2E frágiles a tests de
+                            integración aislados en contenedores Docker efímeros.</p>
+                    </div>
+                </div>
+                <div class="impact-box">
+                    <div class="impact-metric">
+                        <span class="impact-number">-80%</span>
+                        <span class="impact-label">Bugs en Prod</span>
+                    </div>
+                    <div class="impact-metric">
+                        <span class="impact-number">30m</span>
+                        <span class="impact-label">Tiempo de Feedback</span>
+                    </div>
+                    <div class="impact-metric">
+                        <span class="impact-number">100%</span>
+                        <span class="impact-label">Confianza en Release</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CASE 2 -->
+            <article class="case-card">
+                <div class="case-body">
+                    <span class="case-meta">E-Commerce / High Traffic</span>
+                    <h3 class="case-title">Escalado de Performance para Black Friday</h3>
+
+                    <div class="case-section">
+                        <h4>El Problema</h4>
+                        <p>El año anterior, el checkout se cayó durante el pico de tráfico. La infraestructura
+                            auto-escalable no reaccionó lo suficientemente rápido.</p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>La Estrategia</h4>
+                        <p>Diseño de una suite de <strong>Pruebas de Carga Continuas (k6)</strong> integradas en el
+                            pipeline nocturno. Tuning de políticas de auto-scaling basado en métricas predictivas y no
+                            reactivas. Implementación de Circuit Breakers en el servicio de inventario.</p>
+                    </div>
+                </div>
+                <div class="impact-box">
+                    <div class="impact-metric">
+                        <span class="impact-number">50k</span>
+                        <span class="impact-label">RPS Soportados</span>
+                    </div>
+                    <div class="impact-metric">
+                        <span class="impact-number">0</span>
+                        <span class="impact-label">Downtime</span>
+                    </div>
+                    <div class="impact-metric">
+                        <span class="impact-number">-40%</span>
+                        <span class="impact-label">Coste Infra</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CASE 3 -->
+            <article class="case-card">
+                <div class="case-body">
+                    <span class="case-meta">SaaS / Enterprise</span>
+                    <h3 class="case-title">Transformación de Cultura DevOps</h3>
+
+                    <div class="case-section">
+                        <h4>El Problema</h4>
+                        <p>QA era un cuello de botella ("Gatekeepers"). Los desarrolladores no escribían tests y
+                            lanzaban código con la mentalidad de "QA lo encontrará".</p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>La Estrategia</h4>
+                        <p>Evangelización de <strong>Quality Assistance</strong>. Creación de herramientas de
+                            self-service para que los devs pudieran ejecutar tests fácilmente. Implementación de
+                            métricas de calidad por equipo (DORA metrics) para gamificar la mejora.</p>
+                    </div>
+                </div>
+                <div class="impact-box">
+                    <div class="impact-metric">
+                        <span class="impact-number">4x</span>
+                        <span class="impact-label">Frecuencia de Deploy</span>
+                    </div>
+                    <div class="impact-metric">
+                        <span class="impact-number">Daily</span>
+                        <span class="impact-label">Releases</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">© 2026 Software Quality Engineering.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

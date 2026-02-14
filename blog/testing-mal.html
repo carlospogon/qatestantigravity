@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Por qué la mayoría de equipos testea mal | Reflexiones QA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">QA <span>Engineering</span></a>
+            <div class="nav-links">
+                <a href="../index.html#approach" class="nav-link">Estrategia</a>
+                <a href="../blog/index.html" class="nav-link">Reflexiones</a>
+                <a href="../index.html#stack" class="nav-link">Stack</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 50vh;">
+        <div class="container hero-content">
+            <div class="badge">Reflexión Técnica</div>
+            <h1>Por qué la mayoría de equipos testea mal</h1>
+            <p class="hero-subtitle">La obsesión por el 100% de cobertura es un síntoma de falta de estrategia, no de
+                calidad.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container article-content">
+            <a href="../blog/index.html" class="back-link">← Volver a Reflexiones</a>
+
+            <h2>La falacia de la Cobertura (Code Coverage)</h2>
+            <p>He visto proyectos con un 98% de cobertura de código que fallan estrepitosamente en producción. ¿Por qué?
+                Porque testean la implementación, no el comportamiento.</p>
+            <p>Si escribes un test que verifica que `suma(2, 2)` devuelve 4, tienes cobertura. Pero si el requisito de
+                negocio era multiplicar, tu test pasa, tu cobertura es alta, y tu software es incorrecto.</p>
+
+            <h3>El coste del mantenimiento</h3>
+            <p>Cada línea de código de test es código que hay que mantener. Tests frágiles que se rompen con cada
+                refactorización son "deuda técnica" disfrazada de "calidad".</p>
+            <div class="code-block">
+                // Mal test (Acoplado a implementación)<br>
+                expect(component.state.isLoading).toBe(true);<br><br>
+                // Buen test (Basado en comportamiento)<br>
+                expect(screen.getByText('Cargando...')).toBeVisible();
+            </div>
+
+            <h2>Testing basado en Riesgo</h2>
+            <p>Un ingeniero de calidad senior no pregunta "¿Cómo testeamos todo?". Pregunta "¿Qué es lo más grave que
+                podría pasar?".</p>
+            <ul>
+                <li>Si el color del footer falla, nadie pierde dinero.</li>
+                <li>Si el botón de "Pagar" falla, la empresa muere.</li>
+            </ul>
+            <p>Debemos invertir el 80% de nuestro esfuerzo en el 20% del código crítico. Eso es ingeniería eficiente.
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">© 2026 Software Quality Engineering.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
